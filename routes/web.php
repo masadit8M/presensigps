@@ -5,6 +5,7 @@ use App\Http\Controllers\CabangController;
 use App\Http\Controllers\CutiController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DepartemenController;
+use App\Http\Controllers\GajiController;
 use App\Http\Controllers\HariliburController;
 use App\Http\Controllers\IzinabsenController;
 use App\Http\Controllers\IzincutiController;
@@ -128,6 +129,21 @@ Route::group(['middleware' => ['role:administrator|admin departemen,user']], fun
 
     Route::post('/koreksipresensi', [PresensiController::class, 'koreksipresensi']);
     Route::post('/storekoreksipresensi', [PresensiController::class, 'storekoreksipresensi']);
+
+    // Penggajian & Slip Gaji
+    Route::get('/gaji', [GajiController::class, 'index']);
+    Route::post('/gaji/storeperiode', [GajiController::class, 'storePeriode']);
+    Route::get('/gaji/periode/{id}', [GajiController::class, 'showPeriode']);
+    Route::get('/gaji/edit/{id}', [GajiController::class, 'editDetail']);
+    Route::post('/gaji/update/{id}', [GajiController::class, 'updateDetail']);
+    Route::post('/gaji/delete/{id}', [GajiController::class, 'deleteDetail']);
+    Route::post('/gaji/periode/{id}/delete', [GajiController::class, 'deletePeriode']);
+    Route::get('/gaji/cetak/{id}', [GajiController::class, 'cetakSlip']);
+    Route::get('/gaji/download-pdf/{id}', [GajiController::class, 'downloadPdf']);
+    Route::post('/gaji/kirimwa/{id}', [GajiController::class, 'kirimWa']);
+    Route::post('/gaji/kirimwa-semua/{periode_id}', [GajiController::class, 'kirimWaSemua']);
+    Route::get('/gaji/master', [GajiController::class, 'master']);
+    Route::post('/gaji/master/{nik}/update', [GajiController::class, 'updateMaster']);
 });
 
 

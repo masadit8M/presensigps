@@ -34,8 +34,8 @@
                 <img src="{{ asset('assets/img/login/login.webp') }}" alt="image" class="form-image">
             </div>
             <div class="section mt-1">
-                <h1>E-Presensi </h1>
-                <h4>Silahkan Login</h4>
+                <h1>Presensi Arjuna </h1>
+                <h4>Silakan Login</h4>
             </div>
             <div class="section mt-1 mb-5">
                 @php
