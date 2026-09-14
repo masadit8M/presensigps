@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-require_once app_path('Services/fpdf.php');
+require_once __DIR__ . '/fpdf.php';
 
 use FPDF;
 
@@ -16,7 +16,7 @@ class SlipPdfService
      */
     public static function generatePdf($detail)
     {
-        $dir = public_path('uploads/slip');
+        $dir = function_exists('public_path') ? public_path('uploads/slip') : realpath(__DIR__ . '/../../public') . '/uploads/slip';
         if (!file_exists($dir)) {
             mkdir($dir, 0777, true);
         }
